@@ -1,13 +1,13 @@
 import { createToDoListItem } from "./items.js";
-import { displayLibrary } from "./display.js";
-export { items };
+import { displayItems } from "./display.js";
 
-const items = [];
+export const items = [];
 
 export function addItem() {
   const addTask = document.querySelector(".addTask");
   const itemDialog = document.getElementById("itemDialog");
   const cancelBtn = document.getElementById("cancelBtn");
+  const confirmBtn = document.getElementById("confirmBtn");
 
   const form = itemDialog.querySelector("form");
 
@@ -29,15 +29,14 @@ export function addItem() {
         formData.get("project")
       );
 
-      console.log(newItem);
-
       items.push(newItem);
+      console.log(items);
 
       form.reset();
 
       itemDialog.close();
 
-      // displayLibrary();
+      displayItems(items);
     } else {
       form.reportValidity();
     }
