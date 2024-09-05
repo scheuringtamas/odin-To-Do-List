@@ -9,6 +9,8 @@
   height: 100vh;
   width: 20%;
   position: fixed;
+  display: flex;
+  flex-direction: column;
 }
 
 .right-side {
@@ -19,4 +21,22 @@
 
 h1 {
   text-align: center;
+}
+
+.flex-layout {
+  display: flex;
+  gap: 30px;
+  font-size: 30px;
+  align-items: center;
+  margin: 30px;
+}
+
+.projects p {
+  font-size: 30px;
+}
+
+.projects-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
 }
