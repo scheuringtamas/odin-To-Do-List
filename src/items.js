@@ -1,10 +1,8 @@
-function createToDoListItem(
+export function createToDoListItem(
   title,
   description,
   dueDate,
   priority,
-  notes,
-  checklist,
   projects = "default"
 ) {
   const validPriorities = ["low", "medium", "high"];
@@ -14,8 +12,6 @@ function createToDoListItem(
     description,
     dueDate,
     priority,
-    notes,
-    checklist,
     projects,
   };
 }

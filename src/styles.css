@@ -29,6 +29,11 @@ h1 {
   font-size: 30px;
   align-items: center;
   margin: 30px;
+  padding: 10px;
+}
+
+.flex-layout:not(.projects):hover {
+  background-color: grey;
 }
 
 .projects p {
@@ -39,4 +44,52 @@ h1 {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+}
+
+dialog {
+  position: fixed;
+  top: 50%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  padding: 70px;
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  font-size: 20px;
+}
+
+input,
+select {
+  margin-bottom: 20px;
+  padding: 8px;
+  width: 200px;
+  font-size: 20px;
+  border: 1px solid black;
+  width: fit-content;
+}
+
+#confirmBtn {
+  margin-right: 10px;
+}
+
+#confirmBtn:hover {
+  background-color: green;
+  color: white;
+}
+
+#cancelBtn:hover {
+  background-color: red;
+  color: white;
+}
+
+.dialog-buttons {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+}
+
+.dialog-buttons button {
+  padding: 15px;
+  border-radius: 10px;
+  width: fit-content;
 }
