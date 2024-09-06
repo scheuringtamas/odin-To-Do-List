@@ -6,8 +6,6 @@ export function createToDoListItem(
   projects,
   status = false
 ) {
-  const validPriorities = ["low", "medium", "high"];
-
   return {
     title,
     description,

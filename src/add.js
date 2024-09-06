@@ -48,5 +48,7 @@ export function addItem() {
 
   itemDialog.addEventListener("close", () => {
     form.reset();
+    updateBtn.style.display = "none";
+    confirmBtn.style.display = "inline";
   });
 }

@@ -2,7 +2,7 @@ import { items } from "./add.js";
 
 export function displayItems() {
   const output = document.querySelector(".content");
-  let text = "<h2>Items</h2>";
+  let text = "<h2>Items:</h2>";
 
   items.forEach((item, index) => {
     text += `

@@ -35,9 +35,15 @@
         <div class="projects flex-layout">
           <p>Projects</p>
           <div class="projects-buttons">
-            <button class="fa-solid fa-plus">Plus button</button>
-            <button class="fa-solid fa-arrow-down">Arrow button</button>
+            <button id="projectAddButton">
+              <i class="fa-solid fa-plus"></i>
+            </button>
           </div>
+        </div>
+        <div class="projectsList">
+          <ul class="projectItemList">
+            <li>List Item</li>
+          </ul>
         </div>
       </div>
       <div class="right-side">
@@ -71,14 +77,11 @@
               <label for="project"> Project: </label>
               <select name="project" id="project">
                 <option value="">Please choose a project</option>
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
               </select>
             </p>
             <p>
               <label for="priority"> Priority: </label>
-              <select name="priority" id="priority">
+              <select name="priority" id="priority" required>
                 <option value="">Please choose a priority</option>
                 <option value="low">Low</option>
                 <option value="medium">Medium</option>
