@@ -15,13 +15,20 @@
 }
 
 .right-side {
-  margin-left: 20%;
-  width: 80%;
   padding: 20px;
+  width: 80%;
+  margin-left: 20%;
 }
 
 h1 {
   text-align: center;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  padding: 20px;
 }
 
 .flex-layout {
@@ -133,5 +140,35 @@ select {
   position: relative;
   right: 20px;
   border: none;
+  cursor: pointer;
+}
+
+#projectAddButton {
+  font-size: 20px;
+  background-color: #004880;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.projectsList {
+  margin: 0 auto;
+  font-size: 20px;
+}
+
+.projectItemList {
+  list-style-type: none;
+}
+
+.projectItemList:hover {
+}
+
+.project-item {
+  background-color: #004880;
+  color: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 10px;
   cursor: pointer;
 }
