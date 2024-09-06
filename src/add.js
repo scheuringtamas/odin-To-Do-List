@@ -1,7 +1,7 @@
 import { createToDoListItem } from "./items.js";
 import { displayItems } from "./display.js";
 
-export const items = [];
+export let items = [];
 
 export function addItem() {
   const addTask = document.querySelector(".addTask");
@@ -44,5 +44,9 @@ export function addItem() {
 
   cancelBtn.addEventListener("click", (event) => {
     itemDialog.close();
+  });
+
+  itemDialog.addEventListener("close", () => {
+    form.reset();
   });
 }

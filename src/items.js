@@ -3,7 +3,8 @@ export function createToDoListItem(
   description,
   dueDate,
   priority,
-  projects = "default"
+  projects = "default",
+  status = false
 ) {
   const validPriorities = ["low", "medium", "high"];
 
@@ -13,5 +14,9 @@ export function createToDoListItem(
     dueDate,
     priority,
     projects,
+    status,
+    toggleStatus() {
+      this.status = !this.status;
+    },
   };
 }

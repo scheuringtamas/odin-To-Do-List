@@ -103,11 +103,15 @@ select {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: left;
   margin-left: 40px;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .item-card p {
   margin: 10px 0;
+}
+
+.item-card p:first-of-type {
+  margin-top: 20px;
 }
 
 .item-card strong {
@@ -118,6 +122,13 @@ select {
 .deleteButton {
   position: relative;
   left: 250px;
+  border: none;
+  cursor: pointer;
+}
+
+.modify {
+  position: relative;
+  right: 20px;
   border: none;
   cursor: pointer;
 }
