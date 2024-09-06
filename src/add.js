@@ -36,7 +36,7 @@ export function addItem() {
 
       itemDialog.close();
 
-      displayItems(items);
+      displayItems();
     } else {
       form.reportValidity();
     }

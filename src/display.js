@@ -1,10 +1,10 @@
 import { items } from "./add.js";
 
-export function displayItems() {
+export function displayItems(filteredItems = items) {
   const output = document.querySelector(".content");
   let text = "<h2>Items:</h2>";
 
-  items.forEach((item, index) => {
+  filteredItems.forEach((item, index) => {
     text += `
             <div class="item-card" data-index="${index}">
                 <button class="deleteButton"><i class = "fa-regular fa-trash-can"></i></button>
@@ -29,7 +29,7 @@ export function displayItems() {
   attachEventListeners();
 
   // Add event listeners for each checkbox after rendering
-  items.forEach((item, index) => {
+  filteredItems.forEach((item, index) => {
     const checkbox = document.getElementById(`done-${index}`);
     if (checkbox) {
       checkbox.addEventListener("change", () => {

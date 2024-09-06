@@ -1,3 +1,6 @@
+import { items } from "./add";
+import { displayItems } from "./display";
+
 export function addProjects() {
   const projectsList = document.querySelector(".projectItemList");
   const projectAddButton = document.getElementById("projectAddButton");
@@ -17,6 +20,20 @@ export function addProjects() {
       newOption.value = projectName;
       newOption.textContent = projectName;
       projectSelect.appendChild(newOption);
+    }
+  });
+
+  projectsList.addEventListener("click", (event) => {
+    if (event.target && event.target.matches("li.project-item")) {
+      const selectedProject = event.target.textContent; // Get the text content of the clicked project item
+
+      // Filter items based on the selected project
+      const filteredItems = items.filter(
+        (item) => item.projects === selectedProject
+      );
+
+      // Call displayItems with the filtered items
+      displayItems(filteredItems);
     }
   });
 }
