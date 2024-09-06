@@ -13,7 +13,7 @@ export function displayItems() {
                 <p><strong>Title:</strong> ${item.title}</p>
                 <p><strong>Description:</strong> ${item.description}</p>
                 <p><strong>Due Date:</strong> ${item.dueDate}</p>
-                <p><strong>Project:</strong> ${item.project}</p>
+                <p><strong>Project:</strong> ${item.projects}</p>
                 <p><strong>Priority:</strong> ${item.priority}</p>
                 <p class="status">
                 <strong>Status:</strong>
@@ -56,15 +56,49 @@ function attachEventListeners() {
   const modifyButton = document.querySelectorAll(".modifyButton");
   const itemDialog = document.getElementById("itemDialog");
   const form = itemDialog.querySelector("form");
+  const updateBtn = document.getElementById("updateBtn");
+  const confirmBtn = document.getElementById("confirmBtn");
 
   modifyButton.forEach((button) => {
     button.addEventListener("click", (event) => {
       const itemCard = button.closest(".item-card");
-      const index = parseInt(itemCard.getAttribute("data-index"));
+      const index = parseInt(itemCard.getAttribute("data-index"), 10);
 
+      const item = items[index];
+      form.querySelector("#title").value = item.title;
+      form.querySelector("#description").value = item.description;
+      form.querySelector("#dueDate").value = item.dueDate;
+      form.querySelector("#project").value = item.projects;
+      form.querySelector("#priority").value = item.priority;
+
+      itemDialog.setAttribute("data-index", index);
+
+      updateBtn.style.display = "inline";
+      confirmBtn.style.display = "none";
       itemDialog.showModal();
-
-      /*displayItems();*/
     });
+  });
+
+  updateBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    if (form.checkValidity()) {
+      const formData = new FormData(form);
+      const title = formData.get("title");
+      const description = formData.get("description");
+      const dueDate = formData.get("dueDate");
+      const project = formData.get("project");
+      const priority = formData.get("priority");
+
+      const index = itemDialog.getAttribute("data-index");
+
+      if (index !== null) {
+        items[index] = { title, description, dueDate, project, priority };
+        displayItems();
+        itemDialog.close();
+      } else {
+        form.reportValidity();
+      }
+    }
   });
 }

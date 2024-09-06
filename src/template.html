@@ -47,19 +47,24 @@
             <p>
               <label>
                 Title:
-                <input type="text" name="title" required />
+                <input type="text" name="title" id="title" required />
               </label>
             </p>
             <p>
               <label>
                 Description:
-                <input type="text" name="description" required />
+                <input
+                  type="text"
+                  name="description"
+                  id="description"
+                  required
+                />
               </label>
             </p>
             <p>
               <label>
                 Due Date:
-                <input type="date" name="dueDate" required />
+                <input type="date" name="dueDate" id="dueDate" required />
               </label>
             </p>
             <p>
@@ -83,6 +88,14 @@
             <div class="dialog-buttons">
               <button id="confirmBtn" value="default" type="submit">
                 Confirm
+              </button>
+              <button
+                id="updateBtn"
+                value="update"
+                type="button"
+                style="display: none"
+              >
+                Update
               </button>
               <button id="cancelBtn" value="cancel" formmethod="dialog">
                 Cancel
