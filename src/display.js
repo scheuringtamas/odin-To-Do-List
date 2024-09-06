@@ -7,9 +7,9 @@ export function displayItems() {
   items.forEach((item, index) => {
     text += `
             <div class="item-card" data-index="${index}">
-                <button class="deleteButton">Delete</button>
-                <button class="modify fa-solid fa-pencil" style="font-size:24px"></button>
-                
+                <button class="deleteButton"><i class = "fa-regular fa-trash-can"></i></button>
+                <button class="modifyButton"><i class = "fa-solid fa-pencil"></i></button>
+
                 <p><strong>Title:</strong> ${item.title}</p>
                 <p><strong>Description:</strong> ${item.description}</p>
                 <p><strong>Due Date:</strong> ${item.dueDate}</p>
@@ -48,9 +48,23 @@ function attachEventListeners() {
       const index = parseInt(itemCard.getAttribute("data-index"));
 
       items.splice(index, 1);
-      console.log(items);
 
       displayItems();
+    });
+  });
+
+  const modifyButton = document.querySelectorAll(".modifyButton");
+  const itemDialog = document.getElementById("itemDialog");
+  const form = itemDialog.querySelector("form");
+
+  modifyButton.forEach((button) => {
+    button.addEventListener("click", (event) => {
+      const itemCard = button.closest(".item-card");
+      const index = parseInt(itemCard.getAttribute("data-index"));
+
+      itemDialog.showModal();
+
+      /*displayItems();*/
     });
   });
 }

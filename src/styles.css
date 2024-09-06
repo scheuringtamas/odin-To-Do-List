@@ -124,6 +124,8 @@ select {
   left: 250px;
   border: none;
   cursor: pointer;
+  font-size: 24px;
+  color: red;
 }
 
 .modify {
