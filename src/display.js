@@ -87,18 +87,52 @@ function attachEventListeners() {
       const title = formData.get("title");
       const description = formData.get("description");
       const dueDate = formData.get("dueDate");
-      const project = formData.get("project");
+      const projects = formData.get("project");
       const priority = formData.get("priority");
 
       const index = itemDialog.getAttribute("data-index");
 
       if (index !== null) {
-        items[index] = { title, description, dueDate, project, priority };
+        items[index] = { title, description, dueDate, projects, priority };
         displayItems();
         itemDialog.close();
       } else {
         form.reportValidity();
       }
     }
+  });
+
+  calendar();
+  completedItems();
+}
+
+function calendar() {
+  const currentDate = new Date().toISOString().split("T")[0];
+
+  const today = document.querySelector(".today");
+  const upcoming = document.querySelector(".upcoming");
+  const overdue = document.querySelector(".overdue");
+
+  today.addEventListener("click", (event) => {
+    const todayItems = items.filter((item) => item.dueDate === currentDate);
+    displayItems(todayItems);
+  });
+
+  upcoming.addEventListener("click", (event) => {
+    const upcomingItems = items.filter((item) => item.dueDate > currentDate);
+    displayItems(upcomingItems);
+  });
+
+  overdue.addEventListener("click", (event) => {
+    const overdueItems = items.filter((item) => item.dueDate < currentDate);
+    displayItems(overdueItems);
+  });
+}
+
+function completedItems() {
+  const completed = document.querySelector(".completed");
+  completed.addEventListener("click", (event) => {
+    const completedItems = items.filter((item) => item.status === true);
+    displayItems(completedItems);
   });
 }
