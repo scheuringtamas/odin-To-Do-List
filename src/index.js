@@ -10,7 +10,7 @@ import "@fortawesome/fontawesome-free/js/brands";
 
 window.addEventListener("DOMContentLoaded", () => {
   loadData();
-  displayItems(); // Frissítse a nézetet a betöltött adatokkal
+  displayItems();
 });
 
 addItem();

@@ -29,14 +29,13 @@ export function displayItems(filteredItems = items) {
   output.innerHTML = text;
   attachEventListeners();
 
-  // Add event listeners for each checkbox after rendering
   filteredItems.forEach((item, index) => {
     const checkbox = document.getElementById(`done-${index}`);
     if (checkbox) {
       checkbox.addEventListener("change", () => {
         item.status = checkbox.checked;
         saveData();
-        console.log(`Item ${index} status:`, item.status); // Debugging output
+        console.log(`Item ${index} status:`, item.status);
       });
     }
   });

@@ -55,11 +55,11 @@ export function addItem() {
 }
 
 export function saveData() {
-  localStorage.setItem("todoItems", JSON.stringify(items)); // Save items array
+  localStorage.setItem("todoItems", JSON.stringify(items));
   const projects = Array.from(document.querySelectorAll(".project-item")).map(
     (item) => item.textContent
   );
-  localStorage.setItem("projects", JSON.stringify(projects)); // Save project list
+  localStorage.setItem("projects", JSON.stringify(projects));
 }
 
 export function loadData() {
@@ -68,7 +68,7 @@ export function loadData() {
 
   if (savedItems) {
     items = JSON.parse(savedItems);
-    displayItems(); // Render saved items
+    displayItems();
   }
 
   if (savedProjects) {
