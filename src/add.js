@@ -31,6 +31,7 @@ export function addItem() {
 
       items.push(newItem);
       console.log(items);
+      saveData();
 
       form.reset();
 
@@ -51,4 +52,38 @@ export function addItem() {
     updateBtn.style.display = "none";
     confirmBtn.style.display = "inline";
   });
+}
+
+export function saveData() {
+  localStorage.setItem("todoItems", JSON.stringify(items)); // Save items array
+  const projects = Array.from(document.querySelectorAll(".project-item")).map(
+    (item) => item.textContent
+  );
+  localStorage.setItem("projects", JSON.stringify(projects)); // Save project list
+}
+
+export function loadData() {
+  const savedItems = localStorage.getItem("todoItems");
+  const savedProjects = localStorage.getItem("projects");
+
+  if (savedItems) {
+    items = JSON.parse(savedItems);
+    displayItems(); // Render saved items
+  }
+
+  if (savedProjects) {
+    const projectsList = document.querySelector(".projectItemList");
+    JSON.parse(savedProjects).forEach((projectName) => {
+      const projectItem = document.createElement("li");
+      projectItem.textContent = projectName;
+      projectItem.classList.add("project-item");
+      projectsList.appendChild(projectItem);
+
+      const projectSelect = document.getElementById("project");
+      const newOption = document.createElement("option");
+      newOption.value = projectName;
+      newOption.textContent = projectName;
+      projectSelect.appendChild(newOption);
+    });
+  }
 }

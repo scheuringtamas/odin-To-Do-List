@@ -1,4 +1,5 @@
 import { items } from "./add";
+import { saveData } from "./add";
 import { displayItems } from "./display";
 
 export function addProjects() {
@@ -20,6 +21,7 @@ export function addProjects() {
       newOption.value = projectName;
       newOption.textContent = projectName;
       projectSelect.appendChild(newOption);
+      saveData();
     }
   });
 

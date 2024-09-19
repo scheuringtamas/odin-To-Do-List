@@ -1,4 +1,5 @@
 import { items } from "./add.js";
+import { saveData } from "./add.js";
 
 export function displayItems(filteredItems = items) {
   const output = document.querySelector(".content");
@@ -34,6 +35,7 @@ export function displayItems(filteredItems = items) {
     if (checkbox) {
       checkbox.addEventListener("change", () => {
         item.status = checkbox.checked;
+        saveData();
         console.log(`Item ${index} status:`, item.status); // Debugging output
       });
     }
@@ -48,7 +50,7 @@ function attachEventListeners() {
       const index = parseInt(itemCard.getAttribute("data-index"));
 
       items.splice(index, 1);
-
+      saveData();
       displayItems();
     });
   });
@@ -76,6 +78,7 @@ function attachEventListeners() {
       updateBtn.style.display = "inline";
       confirmBtn.style.display = "none";
       itemDialog.showModal();
+      saveData();
     });
   });
 
@@ -94,6 +97,7 @@ function attachEventListeners() {
 
       if (index !== null) {
         items[index] = { title, description, dueDate, projects, priority };
+        saveData();
         displayItems();
         itemDialog.close();
       } else {
