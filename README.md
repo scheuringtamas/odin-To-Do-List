@@ -37,3 +37,7 @@
   - localStorage uses JSON to send and store data, and when you retrieve the data, it will also be in JSON format. Keep in mind you cannot store functions in JSON, so you’ll have to figure out how to add methods back to your object properties once you fetch them. Good luck!
 
 ## Screenshots
+
+<img src="https://github.com/scheuringtamas/odin-To-Do-List/blob/main/screenshots/todolist1.png" />
+<img src="https://github.com/scheuringtamas/odin-To-Do-List/blob/main/screenshots/todolist2.png" />
+<img src="https://github.com/scheuringtamas/odin-To-Do-List/blob/main/screenshots/todolist3.png" />
